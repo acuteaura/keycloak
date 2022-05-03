@@ -5,8 +5,9 @@ ENV KC_METRICS_ENABLED=true
 # This is just neat to have, but still limited in some ways
 ENV KC_FEATURES=admin2
 
-# Disable unused features
-ENV KC_FEATURES_DISABLED=client-policies,par,impersonation
+# make it smol and tiny
+ENV KC_FEATURES_DISABLED=authorization,ciba,client-policies,par,impersonation,step-up-authentication,web-authn
+
 ENV KC_DB=postgres
 RUN /opt/keycloak/bin/kc.sh build
 
