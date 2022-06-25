@@ -1,0 +1,35 @@
+app = "slkc"
+
+[env]
+  KC_DB = "postgres"
+  KC_DB_URL_HOST = "slkc-db.internal"
+  KC_DB_URL_DATABASE = "keycloak"
+  KC_DB_USERNAME = "postgres"
+  KC_HOSTNAME = "slkc.fly.dev"
+  KEYCLOAK_ADMIN = "root"
+  JAVA_OPTS="-Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=false"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = "80"
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"
+
+  [[services.http_checks]]
+    interval = 10000
+    grace_period = "15s"
+    method = "get"
+    path = "/realms/master"
+    protocol = "http"
+    restart_limit = 0
+    timeout = 2000
+    tls_skip_verify = false
