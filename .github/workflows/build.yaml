@@ -28,4 +28,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: latest,${GITHUB_SHA}
+          tags: quay.io/aurelias/keycloak:latest,quay.io/aurelias/keycloak:${GITHUB_SHA}
