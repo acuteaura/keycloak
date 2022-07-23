@@ -1,9 +1,8 @@
 FROM quay.io/keycloak/keycloak:18.0.0 as builder
 
-ENV KC_METRICS_ENABLED=true
+ENV KC_METRICS_ENABLED=false
 
-# This is just neat to have, but still limited in some ways
-ENV KC_FEATURES=
+ENV KC_FEATURES=""
 
 # make it smol and tiny
 ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation,web-authn
