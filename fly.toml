@@ -10,7 +10,7 @@ app = "slkc"
   JAVA_OPTS="-Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=false"
 
 [build]
-  dockerfile = "Dockerfile"
+  image = "quay.io/aurelias/keycloak@sha256:eec4303dffd12fc73d8029297412cce7bad2e8b032d1ac71d9318bb1b416217f"
 
 [[services]]
   internal_port = 8080
