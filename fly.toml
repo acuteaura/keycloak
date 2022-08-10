@@ -10,7 +10,7 @@ app = "slkc"
   JAVA_OPTS="-Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=false"
 
 [build]
-  image = "quay.io/aurelias/keycloak@sha256:eec4303dffd12fc73d8029297412cce7bad2e8b032d1ac71d9318bb1b416217f"
+  image = "quay.io/aurelias/keycloak@sha256:1bdab0b6c1584bf0a64ae9d22c634bb08935c017337dc3adcd164a93acf9f848"
 
 [[services]]
   internal_port = 8080
