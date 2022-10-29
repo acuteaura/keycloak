@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:19.0.1 as builder
+FROM quay.io/keycloak/keycloak:19.0.3 as builder
 
 ENV KC_METRICS_ENABLED=false
 
