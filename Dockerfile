@@ -1,26 +1,12 @@
-FROM quay.io/keycloak/keycloak:19.0.3 as builder
+FROM quay.io/keycloak/keycloak:21.1.0 as builder
 
 ENV KC_METRICS_ENABLED=false
 
 ENV KC_FEATURES=""
 
 # make it smol and tiny
-ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation,web-authn
-
-ENV KC_STORAGE_AREA_ACTION_TOKEN=jpa
-ENV KC_STORAGE_AREA_AUTH_SESSION=jpa
-ENV KC_STORAGE_AREA_AUTHORIZATION=jpa
-ENV KC_STORAGE_AREA_CLIENT=jpa
-ENV KC_STORAGE_AREA_CLIENT_SCOPE=jpa
-ENV KC_STORAGE_AREA_EVENT_ADMIN=jpa
-ENV KC_STORAGE_AREA_EVENT_AUTH=jpa
-ENV KC_STORAGE_AREA_GROUP=jpa
-ENV KC_STORAGE_AREA_LOGIN_FAILURE=jpa
-ENV KC_STORAGE_AREA_REALM=jpa
-ENV KC_STORAGE_AREA_ROLE=jpa
-ENV KC_STORAGE_AREA_SINGLE_USE_OBJECT=jpa
-ENV KC_STORAGE_AREA_USER=jpa
-ENV KC_STORAGE_AREA_USER_SESSION=jpa
+ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation
+ENV KC_FEATURES=webauthn
 
 ENV KC_DB=postgres
 RUN /opt/keycloak/bin/kc.sh build
