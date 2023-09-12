@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi9 AS extra-packages
 RUN mkdir -p /mnt/rootfs
 RUN dnf install --installroot /mnt/rootfs curl --releasever 9 --setopt install_weak_deps=false --nodocs -y; dnf --installroot /mnt/rootfs clean all
 
-FROM quay.io/keycloak/keycloak:21.1.1 as builder
+FROM quay.io/keycloak/keycloak:22.0.2 as builder
 ENV KC_METRICS_ENABLED=false
 ENV KC_FEATURES=""
 
@@ -13,7 +13,7 @@ ENV KC_FEATURES=webauthn
 ENV KC_DB=postgres
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
-FROM quay.io/keycloak/keycloak:21.1.1
+FROM quay.io/keycloak/keycloak:22.0.2
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 COPY --from=extra-packages /mnt/rootfs /
 WORKDIR /opt/keycloak
