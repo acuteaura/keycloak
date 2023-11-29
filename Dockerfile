@@ -1,9 +1,11 @@
 # syntax=docker/dockerfile:1
+ARG KEYCLOAK_VERSION=23.0.1
+
 FROM registry.access.redhat.com/ubi9 AS extra-packages
 RUN mkdir -p /mnt/rootfs
 RUN dnf install --installroot /mnt/rootfs curl --releasever 9 --setopt install_weak_deps=false --nodocs -y; dnf --installroot /mnt/rootfs clean all
 
-FROM quay.io/keycloak/keycloak:22.0.2 as builder
+FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
 # make it smol and tiny
 ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation
@@ -17,7 +19,7 @@ ADD --chown=keycloak:keycloak --chmod=554 --checksum=sha256:0f434d06e73d6018b2c0
 
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
-FROM quay.io/keycloak/keycloak:22.0.2
+FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 COPY --from=extra-packages /mnt/rootfs /
 WORKDIR /opt/keycloak
