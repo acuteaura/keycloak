@@ -9,7 +9,7 @@ FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
 # make it smol and tiny
 ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation
-ENV KC_FEATURES=webauthn
+ENV KC_FEATURES=web-authn
 ENV KC_METRICS_ENABLED=true
 
 ENV KC_DB=postgres
