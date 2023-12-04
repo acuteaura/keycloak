@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-ARG KEYCLOAK_VERSION=23.0.1
+ARG KEYCLOAK_VERSION=22.0.1
 
 FROM registry.access.redhat.com/ubi9 AS extra-packages
 RUN mkdir -p /mnt/rootfs
