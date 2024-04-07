@@ -5,7 +5,7 @@ app = "slkc"
   KC_DB_URL_HOST = "sldb.internal"
   KC_DB_URL_DATABASE = "keycloak"
   KC_DB_USERNAME = "keycloak"
-  KC_HOSTNAME = "is.nullvoid.space"
+  KC_HOSTNAME = "id.nullvoid.space"
   KEYCLOAK_ADMIN = "root"
   JAVA_OPTS="-Xms256m -Xmx500m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Djava.net.preferIPv4Stack=false"
 
