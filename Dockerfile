@@ -24,4 +24,4 @@ ENV KC_HTTP_ENABLED true
 ENV KC_HTTPS_PORT 0
 ENV KC_PROXY edge
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized", "--verbose"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
