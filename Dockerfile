@@ -20,6 +20,10 @@ FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
+ENV KC_DB=postgres
+ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation,kerberos,step-up-authentication,ciba,device-flow
+ENV KC_FEATURES=scripts
+ENV KC_METRICS_ENABLED=true
 ENV KC_HTTP_ENABLED true
 ENV KC_HTTPS_PORT 0
 ENV KC_PROXY edge
