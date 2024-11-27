@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG KEYCLOAK_VERSION=26.0.2
+ARG KEYCLOAK_VERSION=26.0.6
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
@@ -11,8 +11,8 @@ ENV KC_METRICS_ENABLED=true
 
 ENV KC_DB=postgres
 
-ARG METRICS_SPI_VERSION=6.0.0
-ADD --chown=keycloak:keycloak --chmod=554 --checksum=sha256:442ade5b9110ef27893ee69124b3dc51845d69d3acd9b4049c545baf8ca5aca3 https://github.com/aerogear/keycloak-metrics-spi/releases/download/${METRICS_SPI_VERSION}/keycloak-metrics-spi-${METRICS_SPI_VERSION}.jar /opt/keycloak/providers/keycloak-metrics-spi-${METRICS_SPI_VERSION}.jar
+ARG METRICS_SPI_VERSION=7.0.0
+ADD --chown=keycloak:keycloak --chmod=554 --checksum=sha256:e7ec72ab1699e57a25b61cb5e3ef1c532ec9858ed6931c1b491d3368f5d007b8 https://github.com/aerogear/keycloak-metrics-spi/releases/download/${METRICS_SPI_VERSION}/keycloak-metrics-spi-${METRICS_SPI_VERSION}.jar /opt/keycloak/providers/keycloak-metrics-spi-${METRICS_SPI_VERSION}.jar
 
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
