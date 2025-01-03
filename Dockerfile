@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG KEYCLOAK_VERSION=26.0.6
+ARG KEYCLOAK_VERSION=26.0.7
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
@@ -26,6 +26,6 @@ ENV KC_FEATURES=scripts
 ENV KC_METRICS_ENABLED=true
 ENV KC_HTTP_ENABLED true
 ENV KC_HTTPS_PORT 0
-ENV KC_PROXY edge
+ENV KC_PROXY_HEADERS xforwarded
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized", "--proxy-headers", "xforwarded"]
