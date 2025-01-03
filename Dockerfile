@@ -28,4 +28,4 @@ ENV KC_HTTP_ENABLED true
 ENV KC_HTTPS_PORT 0
 ENV KC_PROXY_HEADERS xforwarded
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized", "--proxy-headers", "xforwarded"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
