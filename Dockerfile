@@ -5,7 +5,7 @@ ARG KEYCLOAK_VERSION=26.2.0
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
 # make it smol and tiny
-ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation,kerberos,step-up-authentication,ciba,device-flow
+ENV KC_FEATURES_DISABLED=authorization,client-policies,par,impersonation,kerberos,step-up-authentication,ciba,device-flow,admin-fine-grained-authz-v2
 ENV KC_FEATURES=scripts
 ENV KC_METRICS_ENABLED=true
 
