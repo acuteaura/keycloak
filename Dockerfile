@@ -1,11 +1,11 @@
 # syntax=docker/dockerfile:1
 
-ARG KEYCLOAK_VERSION=26.2.5
+ARG KEYCLOAK_VERSION=26.3.0
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
 # make it smol and tiny
-ENV KC_FEATURES_DISABLED=client-policies,par,impersonation,kerberos,step-up-authentication,ciba,device-flow
+ENV KC_FEATURES_DISABLED=client-policies,par,impersonation,kerberos,step-up-authentication,ciba
 ENV KC_FEATURES=scripts
 ENV KC_METRICS_ENABLED=true
 
