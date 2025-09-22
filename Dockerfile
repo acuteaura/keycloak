@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG KEYCLOAK_VERSION=26.3.0
+ARG KEYCLOAK_VERSION=26.3.4
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION} as builder
 
