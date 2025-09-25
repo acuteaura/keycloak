@@ -17,10 +17,13 @@ ADD --chown=keycloak:keycloak --chmod=554 --checksum=sha256:e7ec72ab1699e57a25b6
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
 FROM quay.io/keycloak/keycloak:${KEYCLOAK_VERSION}
+
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
 ENV KC_DB=postgres
+ENV KC_FEATURES_DISABLED=client-policies,par,impersonation,kerberos,step-up-authentication,ciba
+
 ENV KC_FEATURES=scripts
 ENV KC_METRICS_ENABLED=true
 ENV KC_HTTP_ENABLED true
