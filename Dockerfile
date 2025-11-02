@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG KEYCLOAK_VERSION=26.3.4
+ARG KEYCLOAK_VERSION=26.4.2
 ARG KC_FEATURES=scripts
 ARG KC_FEATURES_DISABLED=client-policies,par,impersonation,kerberos,step-up-authentication,ciba
 ARG KC_METRICS_ENABLED=true
